@@ -27,6 +27,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Gewenbo", url: "https://psyverse.fun" }],
   alternates: { canonical: "/", languages: { en: "/", "zh-CN": "/", "x-default": "/" } },
   openGraph: {
+    images: [{ url: "/opengraph-image.png", width: 1200, height: 630, alt: "The Anatomy of Genius · 天才的解剖 — The shared mental machinery of genius across five centuries: Leonardo da Vinci, Richard Feynman, Elon Musk — curiosity, first principles, the notebook, visual thinking, synthesis, play, obsession and cost" }],
     title: TITLE_EN,
     description:
       "Three minds, one machinery. Eight traits of genius read across Leonardo da Vinci, Richard Feynman, and Elon Musk — a bilingual analytical companion. Curiosity · First principles · The notebook · Visual thinking · Synthesis · Play · Obsession · The cost.",
@@ -37,6 +38,7 @@ export const metadata: Metadata = {
     alternateLocale: ["zh_CN"],
   },
   twitter: {
+    images: ["/twitter-image.png"],
     card: "summary_large_image",
     title: TITLE_EN,
     description: "The shared mental machinery of Da Vinci, Feynman & Musk — eight traits of genius, read across 500 years. Bilingual EN+中文.",
