@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #0c0a07;
+  --gold: #d6a23c;
+  --leo: #c45a35;
+  --feyn: #3fb4c4;
+  --musk: #6f8fd6;
+  --ghost: #ece4d4;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--ink);
+  color: var(--ghost);
+}
+
+body {
+  background-color: #0c0a07;
+  background-image:
+    radial-gradient(ellipse 1100px 620px at 12% -10%, rgba(214, 162, 60, 0.12), transparent 60%),
+    radial-gradient(ellipse 940px 540px at 88% 2%, rgba(196, 90, 53, 0.09), transparent 62%),
+    radial-gradient(ellipse 1280px 760px at 50% 122%, rgba(63, 180, 196, 0.08), transparent 60%);
+  font-family: "Spectral", ui-serif, Georgia, serif;
+  letter-spacing: 0.002em;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: rgba(214, 162, 60, 0.38); color: #fff7e6; }
+
+/* literary display — an engraved frontispiece serif */
+.display { font-family: "Fraunces", ui-serif, Georgia, serif; font-weight: 600; letter-spacing: -0.012em; }
+.zh { font-family: "Noto Serif SC", serif; font-weight: 600; letter-spacing: 0; }
+.label-mono {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  letter-spacing: 0.26em; text-transform: uppercase; font-size: 0.62rem; color: #f3d692;
+}
+.mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+.tnum { font-variant-numeric: tabular-nums; }
+
+/* gilt text — illuminated capital, the glow of gold leaf */
+.signal-text, .gold-text {
+  color: #f3d692;
+  text-shadow: 0 0 26px rgba(214, 162, 60, 0.55), 0 0 70px rgba(176, 126, 30, 0.3);
+}
+.leo-text  { color: #efab8a; text-shadow: 0 0 22px rgba(196, 90, 53, 0.5); }
+.feyn-text { color: #a6e6ee; text-shadow: 0 0 22px rgba(63, 180, 196, 0.5); }
+.musk-text { color: #c2d0f2; text-shadow: 0 0 22px rgba(111, 143, 214, 0.5); }
+
+/* manuscript panel — vellum laid over the dark study */
+.holo {
+  background: linear-gradient(155deg, rgba(40, 35, 27, 0.62), rgba(12, 10, 7, 0.92));
+  border: 1px solid rgba(243, 214, 146, 0.12);
+  backdrop-filter: blur(10px);
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+.holo:hover { border-color: rgba(214, 162, 60, 0.42); box-shadow: 0 0 44px -16px rgba(214, 162, 60, 0.5); }
+
+/* terminal — a sharper inked console / specimen drawer */
+.terminal {
+  background: linear-gradient(180deg, rgba(28, 24, 19, 0.92), rgba(12, 10, 7, 0.97));
+  border: 1px solid rgba(243, 214, 146, 0.14);
+  box-shadow: inset 0 1px 0 rgba(243, 214, 146, 0.06);
+}
+
+/* spectrum divider — leo → gold → feyn → musk */
+.rule-signal {
+  background: linear-gradient(90deg, transparent, rgba(196,90,53,0.6) 14%, rgba(214,162,60,0.7) 44%, rgba(63,180,196,0.5) 72%, rgba(111,143,214,0.5) 90%, transparent);
+}
+
+/* faint ruled-paper backdrop — the grid of a notebook page */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(243, 214, 146, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(243, 214, 146, 0.04) 1px, transparent 1px);
+  background-size: 46px 46px;
+}
+.grid-fine {
+  background-image:
+    linear-gradient(rgba(243, 214, 146, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(243, 214, 146, 0.045) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* paper grain — faint fibrous texture for vellum surfaces */
+.paper-grain {
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(243,214,146,0.025) 0, transparent 2px),
+    radial-gradient(circle at 70% 60%, rgba(196,90,53,0.02) 0, transparent 2px),
+    radial-gradient(circle at 45% 85%, rgba(63,180,196,0.018) 0, transparent 2px);
+  background-size: 140px 140px, 180px 180px, 220px 220px;
+}
+
+/* animated dash flow — ink moving through a line */
+@keyframes flow { to { stroke-dashoffset: -36; } }
+.flow { stroke-dasharray: 4 8; animation: flow 1.4s linear infinite; }
+
+@keyframes pulseGlow { 0%,100% { opacity: 0.45; } 50% { opacity: 1; } }
+.pulse { animation: pulseGlow 2.4s ease-in-out infinite; }
+
+@keyframes drift { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
+.drift { animation: drift 7s ease-in-out infinite; }
+
+@keyframes riseIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+.rise-in { animation: riseIn 0.9s cubic-bezier(0.2,0.7,0.2,1) both; }
+.lang-fade { animation: riseIn 0.42s ease both; }
+
+/* scanning ticker */
+@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.ticker { animation: ticker 42s linear infinite; }
+
+/* slow rotation for gears / orbital systems */
+@keyframes spinslow { to { transform: rotate(360deg); } }
+.spin-slow { animation: spinslow 24s linear infinite; transform-origin: center; }
+@keyframes spinrev { to { transform: rotate(-360deg); } }
+.spin-rev { animation: spinrev 30s linear infinite; transform-origin: center; }
+
+/* scan-line sweep */
+@keyframes scan { 0% { transform: translateY(-100%); } 100% { transform: translateY(900%); } }
+.scan { animation: scan 5s linear infinite; }
+
+/* shimmer pass for gilded edges */
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+.shimmer {
+  background: linear-gradient(100deg, transparent 30%, rgba(243,214,146,0.5) 50%, transparent 70%);
+  background-size: 200% 100%;
+  animation: shimmer 3.4s linear infinite;
+}
+
+/* blinking caret */
+@keyframes blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+.caret { animation: blink 1s step-end infinite; }
+
+/* nervous micro-jitter */
+@keyframes jitter {
+  0% { transform: translate(0,0); }
+  25% { transform: translate(-0.5px,0.5px); }
+  50% { transform: translate(0.5px,-0.5px); }
+  75% { transform: translate(-0.5px,-0.5px); }
+  100% { transform: translate(0,0); }
+}
+.jitter { animation: jitter 0.9s steps(2) infinite; }
+
+::-webkit-scrollbar { width: 10px; background: #0c0a07; }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #28231b, #4a4130); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #b07e1e; }
